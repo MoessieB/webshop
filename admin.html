@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoShop Admin</title>
+  <link rel="stylesheet" href="dist/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200">
+  <nav class="relative flex items-center justify-between px-4 py-0 bg-gray-200">
+    <a href="index.html" class="text-3xl font-bold">
+      <img src="./images/Autoshop.png" class="h-24 py-0 my-0 mr-3 lg:ml-40" alt="AutoShop logo" />
+    </a>
+    <ul class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 right-5 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
+      <li><a class="font-bold text-blue-600" href="index.html">Home</a></li>
+      <li><a class="font-bold text-gray-400 hover:text-blue-500" href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <hr class="h-px bg-gray-300 border-0">
+
+  <div class="flex justify-center mt-20">
+    <div class="flex flex-col justify-center text-center">
+      <h1 class="text-4xl font-bold">AutoShop Adminpaneel</h1>
+      <p class="mt-6 text-xl">Beheer hier je auto-accessoires: producten toevoegen, wijzigen of verwijderen</p>
+    </div>
+  </div>
+
+  <div class="container w-[80%] mx-auto mt-10 flex flex-col">
+    <div class="overflow-hidden rounded-md shadow-lg">
+      <table class="min-w-full bg-white" id="productTable">
+        <thead>
+          <tr class="text-left bg-gray-200">
+            <th class="px-4 py-2">ID</th>
+            <th class="px-4 py-2">Afbeelding</th>
+            <th class="px-4 py-2">Naam</th>
+            <th class="px-4 py-2">Prijs</th>
+            <th class="px-4 py-2">Acties</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody"></tbody>
+      </table>
+    </div>
+    <div class="flex justify-center m-6">
+      <button id="resetProducts" class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Reset naar standaard</button>
+    </div>
+  </div>
+
+  <div class="container mx-auto mt-10 w-[80%]">
+    <h2 class="mb-4 text-2xl font-bold" id="formTitle">Voeg een nieuw product toe</h2>
+    <form id="productForm">
+      <input type="hidden" id="productId" />
+      <div class="mb-4">
+        <label class="block mb-2 text-lg font-bold" for="productName">Naam</label>
+        <input id="productName" type="text" placeholder="Productnaam" required class="w-full px-3 py-2 border rounded shadow" />
+      </div>
+      <div class="mb-4">
+        <label class="block mb-2 text-lg font-bold" for="productPrice">Prijs</label>
+        <input id="productPrice" type="number" placeholder="Prijs in euro" required class="w-full px-3 py-2 border rounded shadow" />
+      </div>
+      <div class="mb-4">
+        <label class="block mb-2 text-lg font-bold" for="productDescription">Beschrijving</label>
+        <input id="productDescription" type="text" placeholder="Korte beschrijving" required class="w-full px-3 py-2 border rounded shadow" />
+      </div>
+      <div class="mb-4">
+        <label class="block mb-2 text-lg font-bold" for="productPicture">Afbeelding</label>
+        <input id="productPicture" type="file" accept="image/*" required class="w-full px-3 py-2 bg-white border rounded shadow" />
+      </div>
+      <div class="mb-4">
+        <button type="submit" class="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Opslaan</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col items-center my-20">
+    <div class="flex justify-center">
+      <h2 class="text-3xl font-bold">Bestellingen</h2>
+    </div>
+    <div id="besteloverzicht" class="mt-10 w-[50%]"></div>
+  </div>
+
+  <script src="./javascript/admin.js" defer></script>
+</body>
+</html>
